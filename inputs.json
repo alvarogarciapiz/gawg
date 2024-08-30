@@ -1,0 +1,27 @@
+{
+    "technology": "java",
+    "docker": false,
+    "notify": "none/slack/email/msteams",
+    "triggers": {
+        "workflow_dispatch": true,
+        "push": {
+            "active": true,
+            "branches": ["main", "master"],
+            "paths": ["src/**", "pom.xml"]
+        },
+        "schedule": {
+            "active": true,
+            "cron": "0 0 24 * *"
+        },
+        "pull_request": {
+            "active": true,
+            "branches": ["main", "master"],
+            "types": ["opened", "edited", "reopened", "synchronize"]
+        }
+    },
+    "runner": {
+        "type": "self-hosted",
+        "labels": ["linux", "python"]
+    },
+    "deploy": "scp/s3/ftp/github/nexus/k8s/eks/aks/gke/ecr/harbor/dockerhub/elasticbeanstalk"
+}

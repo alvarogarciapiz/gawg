@@ -1,0 +1,91 @@
+name: [[WORKFLOW_NAME]]
+
+on:
+  [[ON_TRIGGERS]]
+
+jobs:
+  validate-build:
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validate Configurations #validates: config files, Dockerfile, secrets, deployment, and runner
+        uses: alvarogarciapiz/test@v1
+        with:
+          technology: java
+          docker: [[DOCKER_ENABLED]]
+          self-hosted-runner: [[SELF_HOSTED_RUNNER_ENABLED]]
+          deployment: [[DEPLOYMENT_TYPE]]
+
+  build:
+    needs: validate-build
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build [[TECHNOLOGY]]
+        uses: completar/con/action[[TECHNOLOGY]]@v1
+        with:
+          technology: [[TECHNOLOGY]]
+
+  test:
+    needs: build
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run tests for [[TECHNOLOGY]]
+        uses: completar/con/action[[TECHNOLOGY]]@v1
+        with:
+          technology: [[TECHNOLOGY]]
+
+  package:
+    needs: test
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Package [[TECHNOLOGY]] application
+        uses: completar/con/action[[TECHNOLOGY]]@v1
+        with:
+          technology: [[TECHNOLOGY]]
+
+  deploy:
+    needs: package
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy [[TECHNOLOGY]] application
+        uses: completar/con/action[[TECHNOLOGY]]@v1
+        with:
+          technology: [[TECHNOLOGY]]
+          docker: [[DOCKER_ENABLED]]
+          deployment: [[DEPLOYMENT_TYPE]]
+
+  notify:
+    needs: deploy
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Notify via Messaging App
+        uses: actions/alvaro/notify@v1
+        with:
+          technology: [[TECHNOLOGY]]
+          messaging_app: [[MESSAGING_APP]]
+          a: b
+      # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
+
+  summary:
+    needs: notify
+    runs-on: [[RUNS_ON_CONFIG]]
+    steps:
+      - name: Generate Workflow Summary Report
+        uses: actions/alvaro/notify@v1
+        with:
+          technology: [[TECHNOLOGY]]
+          messaging_app: [[MESSAGING_APP]]
