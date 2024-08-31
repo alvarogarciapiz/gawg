@@ -107,5 +107,3 @@ const output = performSubstitutions(template, config);
 
 const outputPath = path.join(__dirname, '../output.yml');
 writeOutputFile(outputPath, output);
-
-console.log('Output written to output.yml');
