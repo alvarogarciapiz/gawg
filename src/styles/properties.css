@@ -1,6 +1,6 @@
 .properties_container {
   width: 85%;
-  margin: 0 auto; /* Centers the container */
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -27,53 +27,86 @@
 
 .properties_block {
   position: relative;
+  height: auto;
   width: 100%;
-  padding-top: 70%; /* 1:1 Aspect Ratio */
+  padding-top: 70%;
   background-color: #f0f0f0;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 16px;
   color: white;
   overflow: hidden;
 }
 
 .properties_block > div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: absolute; /* Use absolute positioning */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left */
+  text-align: left; /* Align text to the left */
+  margin: 0; /* Reset any margins */
+  padding: 10px; /* Add padding for spacing */
+  padding-left: 30px;
+  margin-right: 30px;
+  padding-top: 0;
 }
 
 .properties_block1 {
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  background: linear-gradient(135deg, #43cea2, #185a9d);
   grid-column: col1-start / col3-start;
   grid-row: row1-start;
 }
 
 .properties_block2 {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(to right bottom, rgb(127, 175, 237), rgb(43, 117, 202));
   grid-column: col3-start;
   grid-row: row1-start / row2-end;
 }
 
 .properties_block3 {
-  background: linear-gradient(135deg, #43cea2, #185a9d);
+  background: linear-gradient(to right top, rgb(20, 20, 32), rgb(67, 67, 77));
   grid-column: col1-start;
   grid-row: row2-start;
 }
 
 .properties_block4 {
-  background: linear-gradient(135deg, #ff512f, #dd2476);
+  background: linear-gradient(to right bottom, rgb(235, 87, 87), rgb(78, 23, 129));
   grid-column: col2-start;
   grid-row: row2-start;
 }
 
 .block_title {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
+  text-align: left;
 }
 
 .block_subtitle {
   font-size: 1rem;
+  text-align: left;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.block_image_1 {
+  padding-top: 40px;
+  width: 40%;
+  height: auto;
+  margin: 0 auto 10px auto; /* Center the image horizontally and keep the bottom margin */
+  display: block; /* Ensure the image is treated as a block element */
+}
+
+.block_image_2 {
+  padding-top: 70px;
+  width: 82%;
+  height: auto;
+  margin: 0 auto 10px auto; /* Center the image horizontally and keep the bottom margin */
+  display: block; /* Ensure the image is treated as a block element */
+}
+
+.block_image_4 {
+  padding-top: 0px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto 10px auto; /* Center the image horizontally and keep the bottom margin */
+  display: block; /* Ensure the image is treated as a block element */
 }
 
 @media (max-width: 768px) {

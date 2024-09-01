@@ -21,7 +21,7 @@ return (
             <div className="pricing_card">
                 <h3 className="card_type">Business</h3>
                 <p className="card_price"><span className="price">-€</span> / Flexible pricing</p>
-                <button className="card_button">Contact sales</button>
+                <button className="card_button get_started">Contact sales</button>
                 <ul className="card_features">
                     <li><span className="checkmark">✓</span> Everything from Free +</li>
                     <li><span className="checkmark">✓</span> Custom-Fit Workflows</li>

@@ -10,9 +10,9 @@ const Footer = () => {
         <span className="footer_text">· &nbsp; &nbsp; Designed in Europe 🇪🇺</span>
       </div>
       <div className="footer_right">
-        <a href="#" className="footer_link">Get started</a>
+        <a href="#get-started" className="footer_link get_started">Get started</a>
         <a>·</a>
-        <a href="#" className="footer_link">@lvrpiz</a>
+        <a href="https://www.linkedin.com/in/alvarogarciapiz/" className="footer_link">@lvrpiz</a>
         <a>·</a>
         <a href="#" className="footer_link">Contact</a>
       </div>
