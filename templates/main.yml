@@ -17,6 +17,7 @@ jobs:
           docker: [[DOCKER_ENABLED]]
           self-hosted-runner: [[SELF_HOSTED_RUNNER_ENABLED]]
           deployment: [[DEPLOYMENT_TYPE]]
+        secrets: inherit
 
   build:
     needs: validate-build

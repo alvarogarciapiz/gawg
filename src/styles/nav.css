@@ -1,0 +1,31 @@
+.nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); */
+}
+
+.nav_logo img {
+    height: 40px;
+    padding-left: 2%;
+}
+
+.nav_text {
+    color: gray;
+    font-size: 14px;
+    padding-right: 2%;
+}
+
+@media (max-width: 600px) {
+    .nav_container {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .nav_text {
+        margin-top: 0;
+        padding-right: 10vw;
+    }
+}

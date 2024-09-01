@@ -1,0 +1,116 @@
+.pricing_container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.pricing_title {
+    font-size: 4rem;
+    color: black;
+    margin-bottom: 40px;
+    text-align: left;
+    margin-bottom: 5vh;
+}
+
+.pricing_cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pricing_card {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align items to the left */
+}
+
+.card_type {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: left;
+    /* Align text to the left */
+    width: 100%;
+}
+
+.card_price {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    text-align: left;
+    /* Align text to the left */
+    width: 100%;
+}
+
+.card_features {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    text-align: left;
+    /* Align text to the left */
+    width: 100%;
+    margin-top: 40px;
+}
+
+.card_features li {
+    margin-bottom: 10px;
+}
+
+.checkmark {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 5px;
+    color: rgb(40, 184, 40);
+    background-color: rgba(150, 233, 158, 0.313); /* Background color for the circle */
+    border-radius: 50%; /* Makes the background circular */
+    width: 24px; /* Fixed width for the circle */
+    height: 24px; /* Fixed height for the circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1; /* Ensures the checkmark is centered vertically */
+  }
+
+.card_button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 500;
+    background-color: #0e0e0e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+    /* Center the button horizontally */
+}
+
+.price {
+    font-size: 3rem;
+    color: black;
+    font-weight: 700;
+}
+
+.card_button:hover {
+    background-color: #363636;
+}
+
+@media (max-width: 768px) {
+    .pricing_cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pricing_card {
+        width: 100%;
+        max-width: 300px;
+    }
+}

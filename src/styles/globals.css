@@ -1,0 +1,26 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+  
+  
+body {
+  margin: 0;
+  background-color: #F9F9FA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.get_started {
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.get_started:active {
+  transform: scale(0.95);
+}
