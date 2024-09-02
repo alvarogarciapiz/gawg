@@ -4,6 +4,6 @@ JAVA_VERSION="8"
 PYTHON_VERSION="3.10"
 NODE_VERSION="18"
 NODE_DIST_DIR="dist/"
-PYTHON_DIST_DIR="./" File or folder to upload
+PYTHON_DIST_DIR="./"
 JAVA_DIST_DIR="target/"
 JAVA_DISTRIBUTION="temurin"

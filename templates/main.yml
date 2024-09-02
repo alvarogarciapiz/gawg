@@ -6,11 +6,14 @@ on:
 jobs:
   validate-build:
     runs-on: [[RUNS_ON_CONFIG]]
+    outputs:
+      JSON: ${{ steps.validate.outputs.JSON }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
       
       - name: Validate Configurations #validates: config files, Dockerfile, secrets, deployment, and runner
+        id: validate
         uses: alvarogarciapiz/gawg-validate-build@v1
         with:
           technology: java
@@ -30,6 +33,7 @@ jobs:
         uses: alvarogarciapiz/gawg-build@v1
         with:
           technology: [[TECHNOLOGY]]
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
 
   test:
     needs: build
@@ -42,21 +46,19 @@ jobs:
         uses: alvarogarciapiz/gawg-testd@v1
         with:
           technology: [[TECHNOLOGY]]
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
 
-  package:
+  quality:
     needs: test
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Package [[TECHNOLOGY]] application
-        uses: completar/con/action[[TECHNOLOGY]]@v1
-        with:
-          technology: [[TECHNOLOGY]]
+      - name: COMPLETAR: SONAR, FORTIFY???
 
   deploy:
-    needs: package
+    needs: quality
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Checkout code
@@ -68,6 +70,7 @@ jobs:
           technology: [[TECHNOLOGY]]
           docker: [[DOCKER_ENABLED]]
           deployment: [[DEPLOYMENT_TYPE]]
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
 
   notify:
     needs: deploy
@@ -78,7 +81,7 @@ jobs:
         with:
           technology: [[TECHNOLOGY]]
           messaging_app: [[MESSAGING_APP]]
-          a: b
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
 
   summary:
