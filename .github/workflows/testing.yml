@@ -56,8 +56,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: COMPLETAR: SONAR, FORTIFY???
-
   deploy:
     needs: quality
     runs-on: ubuntu-latest
