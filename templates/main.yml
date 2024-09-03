@@ -84,7 +84,7 @@ jobs:
           config-json: ${{ jobs.validate-build.outputs.JSON }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
 
-  summary:
+  summary: # En vez de summary igual mejor un create tag and release?
     needs: notify
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
