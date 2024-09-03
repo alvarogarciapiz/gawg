@@ -15,7 +15,7 @@ jobs:
       
       - name: Validate Configurations #validates: config files, Dockerfile, secrets, deployment, and runner
         id: validate
-        uses: alvarogarciapiz/gawg-validate-build@v1
+        uses: alvarogarciapiz/gawg-validate-build@main
         with:
           technology: node
           docker: false
