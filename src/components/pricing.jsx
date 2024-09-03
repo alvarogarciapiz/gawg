@@ -16,6 +16,7 @@ return (
                     <li><span className="checkmark">✓</span> Self-hosted runner support</li>
                     <li><span className="checkmark">✓</span> Docker support</li>
                     <li><span className="checkmark">✓</span> Workflow summary</li>
+                    <li><span className="checkmark">✓</span> No credit card</li>
                 </ul>
             </div>
             <div className="pricing_card">
