@@ -1,0 +1,96 @@
+name: TESTING WORKFLOW
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  validate-build:
+    runs-on: ubuntu-latest
+    outputs:
+      JSON: ${{ steps.validate.outputs.JSON }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Validate Configurations #validates: config files, Dockerfile, secrets, deployment, and runner
+        id: validate
+        uses: alvarogarciapiz/gawg-validate-build@v1
+        with:
+          technology: node
+          docker: false
+          self-hosted-runner: false
+          deployment: JUST_TESTING
+        secrets: inherit
+
+  build:
+    needs: validate-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build node
+        uses: alvarogarciapiz/gawg-build@v1
+        with:
+          technology: node
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run tests for node
+        uses: alvarogarciapiz/gawg-testd@v1
+        with:
+          technology: node
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
+
+  quality:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: COMPLETAR: SONAR, FORTIFY???
+
+  deploy:
+    needs: quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy node application
+        uses: alvarogarciapiz/gawg-deploy@v1
+        with:
+          technology: node
+          docker: false
+          deployment: JUST_TESTING
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify via Messaging App
+        uses: alvarogarciapiz/gawg-notify@v1
+        with:
+          technology: node
+          messaging_app: 'none/slack/email/msteams'
+          config-json: ${{ jobs.validate-build.outputs.JSON }}
+      # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
+
+  summary:
+    needs: notify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Workflow Summary Report
+        uses: actions/alvaro/notify@v1
+        with:
+          technology: node
+          messaging_app: 'none/slack/email/msteams'
