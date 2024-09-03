@@ -21,7 +21,6 @@ jobs:
           docker: false
           self-hosted-runner: false
           deployment: JUST_TESTING
-        secrets: inherit
 
   build:
     needs: validate-build
@@ -34,7 +33,7 @@ jobs:
         uses: alvarogarciapiz/gawg-build@v1
         with:
           technology: node
-          config-json: ${{ jobs.validate-build.outputs.JSON }}
+          config-json: ${{ needs.validate-build.outputs.JSON }}
 
   test:
     needs: build
