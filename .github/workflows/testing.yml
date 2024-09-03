@@ -46,7 +46,7 @@ jobs:
         uses: alvarogarciapiz/gawg-testd@v1
         with:
           technology: node
-          config-json: ${{ jobs.validate-build.outputs.JSON }}
+          config-json: ${{ needs.validate-build.outputs.JSON }}
 
   quality:
     needs: test
@@ -68,7 +68,7 @@ jobs:
           technology: node
           docker: false
           deployment: JUST_TESTING
-          config-json: ${{ jobs.validate-build.outputs.JSON }}
+          config-json: ${{ needs.validate-build.outputs.JSON }}
 
   notify:
     needs: deploy
@@ -79,7 +79,7 @@ jobs:
         with:
           technology: node
           messaging_app: 'none/slack/email/msteams'
-          config-json: ${{ jobs.validate-build.outputs.JSON }}
+          config-json: ${{ needs.validate-build.outputs.JSON }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
 
   summary:
