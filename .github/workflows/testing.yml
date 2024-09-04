@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build node
-        uses: alvarogarciapiz/gawg-build@v1
+        uses: alvarogarciapiz/gawg-build@main
         with:
           technology: node
           config-json: ${{ needs.validate-build.outputs.JSON }}
@@ -43,7 +43,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run tests for node
-        uses: alvarogarciapiz/gawg-testd@v1
+        uses: alvarogarciapiz/gawg-testd@main
         with:
           technology: node
           config-json: ${{ needs.validate-build.outputs.JSON }}
@@ -63,7 +63,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy node application
-        uses: alvarogarciapiz/gawg-deploy@v1
+        uses: alvarogarciapiz/gawg-deploy@main
         with:
           technology: node
           docker: false
@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Notify via Messaging App
-        uses: alvarogarciapiz/gawg-notify@v1
+        uses: alvarogarciapiz/gawg-notify@main
         with:
           technology: node
           messaging_app: 'none/slack/email/msteams'
