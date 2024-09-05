@@ -47,7 +47,6 @@ jobs:
         with:
           technology: node
           config-json: ${{ needs.validate-build.outputs.JSON }}
-          testing-enabled: '${{ fromJson(needs.validate-build.outputs.JSON).TESTING }}'
 
   quality:
     needs: test
