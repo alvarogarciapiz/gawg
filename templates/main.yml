@@ -36,7 +36,7 @@ jobs:
           config-json: ${{ jobs.validate-build.outputs.JSON }}
 
   test:
-    needs: build
+    needs: [validate-build, build]
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Checkout code
@@ -50,7 +50,7 @@ jobs:
           testing-enabled: ${{ fromJson(inputs.config-json).TESTING }}
 
   quality:
-    needs: test
+    needs: [validate-build, build, test]
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Checkout code
@@ -59,7 +59,7 @@ jobs:
       - name: COMPLETAR: SONAR, FORTIFY???
 
   deploy:
-    needs: quality
+    needs: [validate-build, build, test, quality]
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Checkout code
@@ -74,7 +74,7 @@ jobs:
           config-json: ${{ jobs.validate-build.outputs.JSON }}
 
   notify:
-    needs: deploy
+    needs: [validate-build, build, test, quality, deploy]
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Notify via Messaging App
@@ -86,7 +86,7 @@ jobs:
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
 
   summary: # En vez de summary igual mejor un create tag and release?
-    needs: notify
+    needs: [validate-build, build, test, quality, deploy, notify]
     runs-on: [[RUNS_ON_CONFIG]]
     steps:
       - name: Generate Workflow Summary Report

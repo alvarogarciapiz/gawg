@@ -49,14 +49,14 @@ jobs:
           config-json: ${{ needs.validate-build.outputs.JSON }}
 
   quality:
-    needs: test
+    needs: [validate-build, build, test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
   deploy:
-    needs: quality
+    needs: [validate-build, build, test, quality]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -71,7 +71,7 @@ jobs:
           config-json: ${{ needs.validate-build.outputs.JSON }}
 
   notify:
-    needs: deploy
+    needs: [validate-build, build, test, quality, deploy]
     runs-on: ubuntu-latest
     steps:
       - name: Notify via Messaging App
@@ -83,7 +83,7 @@ jobs:
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
 
   summary:
-    needs: notify
+    needs: [validate-build, build, test, quality, deploy, notify]
     runs-on: ubuntu-latest
     steps:
       - name: Generate Workflow Summary Report
