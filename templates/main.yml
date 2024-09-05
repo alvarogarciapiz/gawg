@@ -43,7 +43,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run tests for [[TECHNOLOGY]]
-        uses: alvarogarciapiz/gawg-testd@v1
+        uses: alvarogarciapiz/gawg-test@v1
         with:
           technology: [[TECHNOLOGY]]
           config-json: ${{ jobs.validate-build.outputs.JSON }}
