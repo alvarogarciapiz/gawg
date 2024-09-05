@@ -36,7 +36,7 @@ jobs:
           config-json: ${{ needs.validate-build.outputs.JSON }}
 
   test:
-    needs: build
+    needs: [validate-build, build]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
