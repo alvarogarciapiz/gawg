@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       JSON: ${{ steps.validate.outputs.JSON }}
+      VALIDATE_SUMMARY: ${{ steps.validate.outputs.VALIDATE_SUMMARY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -21,6 +22,16 @@ jobs:
           docker: false
           self-hosted-runner: false
           deployment: JUST_TESTING
+
+  test:
+    needs : validate-build
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Run tests for node
+        shell: bash
+        run: |
+          echo "Test summary: ${{ needs.validate-build.outputs.VALIDATE_SUMMARY }}"
 
   build:
     needs: validate-build
