@@ -80,10 +80,11 @@ jobs:
       - name: Notify via Messaging App
         uses: alvarogarciapiz/gawg-notify@main
         with:
-          messaging_app: 'none'
+          messaging_app: 'slack'
           artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
           technology: node
           docker: false
           self-hosted-runner: false
           deployment: JUST_TESTING
+        secrets: inherit
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
