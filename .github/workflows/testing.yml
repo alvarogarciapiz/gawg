@@ -86,5 +86,6 @@ jobs:
           docker: false
           self-hosted-runner: false
           deployment: JUST_TESTING
-        secrets: inherit
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
