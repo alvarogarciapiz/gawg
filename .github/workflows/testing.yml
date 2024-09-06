@@ -78,5 +78,4 @@ jobs:
         uses: alvarogarciapiz/gawg-notify@main
         with:
           messaging_app: 'none'
-          config-json: ${{ needs.validate-build.outputs.JSON }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
