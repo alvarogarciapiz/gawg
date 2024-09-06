@@ -77,17 +77,6 @@ jobs:
       - name: Notify via Messaging App
         uses: alvarogarciapiz/gawg-notify@main
         with:
-          technology: node
-          messaging_app: 'none/slack/email/msteams'
+          messaging_app: 'none'
           config-json: ${{ needs.validate-build.outputs.JSON }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
-
-  summary:
-    needs: [validate-build, build, test, quality, deploy, notify]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate Workflow Summary Report
-        uses: actions/alvaro/notify@v1
-        with:
-          technology: node
-          messaging_app: 'none/slack/email/msteams'
