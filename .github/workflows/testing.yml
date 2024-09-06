@@ -27,7 +27,6 @@ jobs:
     needs : validate-build
     runs-on: ubuntu-latest
     steps:
-
       - name: Run tests for node
         shell: bash
         run: |
