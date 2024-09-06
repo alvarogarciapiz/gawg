@@ -25,6 +25,8 @@ jobs:
   build:
     needs: validate-build
     runs-on: [[RUNS_ON_CONFIG]]
+    outputs:
+      ARTIFACT_NAME: ${{ steps.build.outputs.ARTIFACT_NAME }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -81,5 +83,6 @@ jobs:
         uses: alvarogarciapiz/gawg-notify@v1
         with:
           messaging_app: [[MESSAGING_APP]]
+          artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
 
   summary: # En vez de summary igual mejor un create tag and release?

@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       JSON: ${{ steps.validate.outputs.JSON }}
-      VALIDATE_SUMMARY: ${{ steps.validate.outputs.VALIDATE_SUMMARY }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -23,23 +22,17 @@ jobs:
           self-hosted-runner: false
           deployment: JUST_TESTING
 
-  testds:
-    needs : validate-build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run tests for node
-        shell: bash
-        run: |
-          echo "Test summary: ${{ needs.validate-build.outputs.VALIDATE_SUMMARY }}"
-
   build:
     needs: validate-build
     runs-on: ubuntu-latest
+    outputs:
+      ARTIFACT_NAME: ${{ steps.build.outputs.ARTIFACT_NAME }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Build node
+        id: build
         uses: alvarogarciapiz/gawg-build@main
         with:
           technology: node
@@ -88,4 +81,5 @@ jobs:
         uses: alvarogarciapiz/gawg-notify@main
         with:
           messaging_app: 'none'
+          artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
