@@ -23,7 +23,7 @@ jobs:
           self-hosted-runner: false
           deployment: JUST_TESTING
 
-  test:
+  testds:
     needs : validate-build
     runs-on: ubuntu-latest
     steps:
