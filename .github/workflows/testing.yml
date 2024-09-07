@@ -3,6 +3,9 @@ name: TESTING WORKFLOW
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 
 jobs:
   validate-build:
