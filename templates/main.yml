@@ -94,6 +94,9 @@ jobs:
     needs: [validate-build, build, test, quality, deploy]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Generate Tag and Release
         uses: alvarogarciapiz/gawg-release@v1
         with:
