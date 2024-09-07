@@ -77,7 +77,7 @@ jobs:
 
   notify:
     needs: [validate-build, build, test, quality, deploy]
-    runs-on: [[RUNS_ON_CONFIG]]
+    runs-on: ubuntu-latest
     steps:
       - name: Notify via Messaging App
         uses: alvarogarciapiz/gawg-notify@v1
