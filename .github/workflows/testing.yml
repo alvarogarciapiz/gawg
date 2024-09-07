@@ -89,3 +89,12 @@ jobs:
           SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+
+  release:
+    needs: [validate-build, build, test, quality, deploy]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Tag and Release
+        uses: alvarogarciapiz/gawg-release@main
+        with:
+          config-json: ${{ needs.validate-build.outputs.JSON }}
