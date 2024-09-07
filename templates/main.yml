@@ -101,3 +101,4 @@ jobs:
         uses: alvarogarciapiz/gawg-release@v1
         with:
           config-json: ${{ needs.validate-build.outputs.JSON }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
