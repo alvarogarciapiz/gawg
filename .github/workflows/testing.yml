@@ -80,7 +80,7 @@ jobs:
       - name: Notify via Messaging App
         uses: alvarogarciapiz/gawg-notify@main
         with:
-          messaging_app: 'slack'
+          messaging_app: 'discord'
           artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
           technology: node
           docker: false
@@ -88,4 +88,5 @@ jobs:
           deployment: JUST_TESTING
           SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
