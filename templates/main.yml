@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Validate Configurations #validates: config files, Dockerfile, secrets, deployment, and runner
+      - name: Validate Configurations
         id: validate
         uses: alvarogarciapiz/gawg-validate-build@v1
         with:
@@ -20,7 +20,6 @@ jobs:
           docker: [[DOCKER_ENABLED]]
           self-hosted-runner: [[SELF_HOSTED_RUNNER_ENABLED]]
           deployment: [[DEPLOYMENT_TYPE]]
-        secrets: inherit
 
   build:
     needs: validate-build
@@ -49,7 +48,6 @@ jobs:
         with:
           technology: [[TECHNOLOGY]]
           config-json: ${{ jobs.validate-build.outputs.JSON }}
-          testing-enabled: ${{ fromJson(inputs.config-json).TESTING }}
 
   quality:
     needs: [validate-build, build, test]
@@ -88,5 +86,6 @@ jobs:
           docker: [[DOCKER_ENABLED]]
           self-hosted-runner: [[SELF_HOSTED_RUNNER_ENABLED]]
           deployment: [[DEPLOYMENT_TYPE]]
-
-  summary: # En vez de summary igual mejor un create tag and release?
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}

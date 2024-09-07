@@ -13,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: Validate Configurations #validates: config files, Dockerfile, secrets, deployment, and runner
+      - name: Validate Configurations
         id: validate
         uses: alvarogarciapiz/gawg-validate-build@main
         with:
@@ -89,4 +89,3 @@ jobs:
           SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
           SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-      # This action will only execute a step of "skipping this job" if 'none' is passed in the action itself
