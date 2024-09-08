@@ -5,7 +5,6 @@ on:
 
 permissions:
   contents: write
-  security-events: write
 
 
 jobs:
@@ -61,12 +60,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@main
         with:
-          languages: javascript
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@main
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@v3.0.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          projectBaseDir: src
+          args: >
+            -Dsonar.organization=my-organization
+            -Dsonar.projectKey=my-projectkey
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.sources=lib/
+            -Dsonar.test.exclusions=tests/**
+            -Dsonar.tests=tests/
+            -Dsonar.verbose=true
 
   deploy:
     needs: [validate-build, build, test, quality]
