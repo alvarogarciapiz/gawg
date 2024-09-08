@@ -57,19 +57,18 @@ jobs:
   quality:
     needs: [validate-build, build]
     runs-on: ubuntu-latest
-    if: false
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Analyze code quality
-        uses: alvarogarciapiz/gawg-quality@main
-        with:
-          config-json: ${{ needs.validate-build.outputs.JSON }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          sonar-token: ${{ secrets.SONAR_TOKEN }}
+      # - name: Analyze code quality
+      #   uses: alvarogarciapiz/gawg-quality@main
+      #   with:
+      #     config-json: ${{ needs.validate-build.outputs.JSON }}
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     sonar-token: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     needs: [validate-build, build, test, quality]
