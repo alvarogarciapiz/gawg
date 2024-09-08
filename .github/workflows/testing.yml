@@ -78,7 +78,7 @@ jobs:
       artifact-name: ${{ needs.build.outputs.ARTIFACT_NAME }}
       docker: true
       self-hosted-runner: false
-      deployment: JUST_TESTING
+      deployment: "none"
       config-json: ${{ needs.validate-build.outputs.JSON }}
     secrets: inherit
 
