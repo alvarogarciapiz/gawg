@@ -54,12 +54,19 @@ jobs:
 
   quality:
     needs: [validate-build, build, test]
-    runs-on: [[RUNS_ON_CONFIG]]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: COMPLETAR: SONAR, FORTIFY???
+      - name: Analyze code quality
+        uses: alvarogarciapiz/gawg-quality@v1
+        with:
+          config-json: ${{ needs.validate-build.outputs.JSON }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          sonar-token: ${{ secrets.SONAR_TOKEN }}
 
   deploy:
     needs: [validate-build, build, test, quality]
