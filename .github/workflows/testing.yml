@@ -66,6 +66,7 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@v3.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
           projectBaseDir: src
           args: >
             -Dsonar.organization=my-organization
