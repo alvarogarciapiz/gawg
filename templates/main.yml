@@ -3,6 +3,9 @@ name: [[WORKFLOW_NAME]]
 on:
   [[ON_TRIGGERS]]
 
+permissions:
+  contents: write
+
 jobs:
   validate-build:
     runs-on: [[RUNS_ON_CONFIG]]
