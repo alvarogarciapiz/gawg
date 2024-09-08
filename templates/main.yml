@@ -72,7 +72,7 @@ jobs:
     needs: [validate-build, build, test, quality]
     uses: alvarogarciapiz/gawg-deploy/.github/workflows/deploy.yml@main
     with:
-      artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
+      artifact-name: ${{ needs.build.outputs.ARTIFACT_NAME }}
       docker: [[DOCKER_ENABLED]]
       self-hosted-runner: [[SELF_HOSTED_RUNNER_ENABLED]]
       deployment: [[DEPLOYMENT_TYPE]]
