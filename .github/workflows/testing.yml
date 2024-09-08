@@ -69,6 +69,8 @@ jobs:
         with:
           projectBaseDir: src
           args: >
+            -Dsonar.organization=alvarogarciapiz
+            -Dsonar.projectKey=alvarogarciapiz_gawg
             -Dsonar.verbose=true
 
   deploy:
