@@ -69,12 +69,6 @@ jobs:
         with:
           projectBaseDir: src
           args: >
-            -Dsonar.organization=my-organization
-            -Dsonar.projectKey=my-projectkey
-            -Dsonar.python.coverage.reportPaths=coverage.xml
-            -Dsonar.sources=lib/
-            -Dsonar.test.exclusions=tests/**
-            -Dsonar.tests=tests/
             -Dsonar.verbose=true
 
   deploy:
