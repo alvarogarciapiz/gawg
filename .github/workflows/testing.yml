@@ -72,18 +72,14 @@ jobs:
 
   deploy:
     needs: [validate-build, build, test, quality]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy node application
-        uses: alvarogarciapiz/gawg-deploy@main
-        with:
-          technology: node
-          docker: false
-          deployment: JUST_TESTING
-          config-json: ${{ needs.validate-build.outputs.JSON }}
+    uses: alvarogarciapiz/gawg-deploy/.github/workflows/deploy.yml@main
+    with:
+      artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
+      docker: true
+      self-hosted-runner: false
+      deployment: JUST_TESTING
+      config-json: ${{ needs.validate-build.outputs.JSON }}
+    secrets: inherit
 
   notify:
     needs: [validate-build, build, test, quality, deploy]

@@ -70,18 +70,14 @@ jobs:
 
   deploy:
     needs: [validate-build, build, test, quality]
-    runs-on: [[RUNS_ON_CONFIG]]
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy [[TECHNOLOGY]] application
-        uses: alvarogarciapiz/gawg-deploy@v1
-        with:
-          technology: [[TECHNOLOGY]]
-          docker: [[DOCKER_ENABLED]]
-          deployment: [[DEPLOYMENT_TYPE]]
-          config-json: ${{ jobs.validate-build.outputs.JSON }}
+    uses: alvarogarciapiz/gawg-deploy/.github/workflows/deploy.yml@main
+    with:
+      artifact_name: ${{ needs.build.outputs.ARTIFACT_NAME }}
+      docker: [[DOCKER_ENABLED]]
+      self-hosted-runner: [[SELF_HOSTED_RUNNER_ENABLED]]
+      deployment: [[DEPLOYMENT_TYPE]]
+      config-json: ${{ needs.validate-build.outputs.JSON }}
+    secrets: inherit
 
   notify:
     needs: [validate-build, build, test, quality, deploy]
