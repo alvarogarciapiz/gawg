@@ -39,7 +39,7 @@ Once the form is filled out and submitted, the GAWG system automatically generat
 
 ### Getting Started
 
-To get started with GAWG, follow the instructions in the [Installation Guide](#installation-guide) and configure your GitHub repository using the generated workflow files. For detailed information on how to use GAWG, refer to the [Usage Documentation](#usage).
+To get started with GAWG, follow the instructions in the [Installation Guide](https://github.com/alvarogarciapiz/gawg/wiki/installation-guide) and configure your GitHub repository using the generated workflow files. For detailed information on how to use GAWG, refer to the [Usage Documentation](https://github.com/alvarogarciapiz/gawg/wiki/Usage-(If-you-have-filled-the-website-form)).
 
 ## Support
 
