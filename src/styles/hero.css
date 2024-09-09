@@ -51,3 +51,33 @@
   height: auto;
   margin-bottom: 12vh;
 }
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+  .hero_title {
+    font-size: 3rem;
+    letter-spacing: -2.5px;
+  }
+  .hero_container{
+    margin-left: 5vw;
+    margin-right: 5vw;
+  }
+
+  .hero_paragraph {
+    font-size: 1rem;
+    letter-spacing: 0.1px;
+  }
+
+  .hero_image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12vh;
+    margin-top: 0;
+  }
+
+  .hero_button {
+    font-size: 1.2rem;
+    padding: 10px 16px;
+    margin-bottom: 9vh;
+  }
+}

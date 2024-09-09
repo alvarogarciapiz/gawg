@@ -41,3 +41,18 @@
 .footer_link:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .footer_container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 40px;
+    padding-bottom: 70px;
+    height: auto; /* Reduce height in mobile view */
+  }
+
+  .footer_right {
+    display: none; /* Hide footer_right in mobile view */
+  }
+}

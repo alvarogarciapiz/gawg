@@ -19,8 +19,8 @@
 .properties_grid {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: [col1-start] 1fr [col2-start] 1fr [col3-start] 1fr [col3-end];
-  grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
   width: 70%;
   margin: 0 auto;
 }
@@ -37,12 +37,12 @@
 }
 
 .properties_block > div {
-  position: absolute; /* Use absolute positioning */
-  top: 0; /* Position at the top */
-  left: 0; /* Position at the left */
-  text-align: left; /* Align text to the left */
-  margin: 0; /* Reset any margins */
-  padding: 10px; /* Add padding for spacing */
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+  margin: 0;
+  padding: 10px;
   padding-left: 30px;
   margin-right: 30px;
   padding-top: 0;
@@ -50,26 +50,23 @@
 
 .properties_block1 {
   background: linear-gradient(135deg, #43cea2, #185a9d);
-  grid-column: col1-start / col3-start;
-  grid-row: row1-start;
+  grid-column: span 2;
 }
 
 .properties_block2 {
   background: linear-gradient(to right bottom, rgb(127, 175, 237), rgb(43, 117, 202));
-  grid-column: col3-start;
-  grid-row: row1-start / row2-end;
+  grid-column: span 1;
+  grid-row: span 2;
 }
 
 .properties_block3 {
   background: linear-gradient(to right top, rgb(20, 20, 32), rgb(67, 67, 77));
-  grid-column: col1-start;
-  grid-row: row2-start;
+  grid-column: span 1;
 }
 
 .properties_block4 {
   background: linear-gradient(to right bottom, rgb(235, 87, 87), rgb(78, 23, 129));
-  grid-column: col2-start;
-  grid-row: row2-start;
+  grid-column: span 1;
 }
 
 .block_title {
@@ -86,32 +83,107 @@
 }
 
 .block_image_1 {
-  padding-top: 40px;
-  width: 40%;
+  width: 50%;
   height: auto;
-  margin: 0 auto 10px auto; /* Center the image horizontally and keep the bottom margin */
-  display: block; /* Ensure the image is treated as a block element */
+  margin: 0 auto 10px auto;
+  display: block;
 }
 
 .block_image_2 {
-  padding-top: 70px;
-  width: 82%;
+  width: 95%;
   height: auto;
-  margin: 0 auto 10px auto; /* Center the image horizontally and keep the bottom margin */
-  display: block; /* Ensure the image is treated as a block element */
+  margin: 3vh auto 10px auto;
+  display: block;
 }
 
 .block_image_4 {
-  padding-top: 0px;
   width: 80%;
   height: auto;
-  margin: 0 auto 10px auto; /* Center the image horizontally and keep the bottom margin */
-  display: block; /* Ensure the image is treated as a block element */
+  margin: 0 auto 10px auto;
+  display: block;
 }
 
 @media (max-width: 768px) {
+  .properties_title {
+    font-size: 2rem;
+  }
+
+  .properties_description {
+    font-size: 1rem;
+  }
+
   .properties_grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+    width: 100%;
+  }
+
+  .properties_block {
+    padding-top: 100%;
+  }
+
+  .properties_block1,
+  .properties_block2,
+  .properties_block3,
+  .properties_block4 {
+    grid-column: span 1 !important;
+    grid-row: auto !important;
+  }
+
+  .properties_block2 {
+    padding-top: 150%; /* Taller to fit the image */
+  }
+
+  .properties_block3,
+  .properties_block4 {
+    padding-top: 80%; /* Further reduced height */
+  }
+
+  .block_title {
+    font-size: 1.25rem;
+  }
+
+  .block_subtitle {
+    font-size: 0.875rem;
+  }
+
+  .block_image_1 {
+    width: 60%; /* Smaller on mobile */
+  }
+
+  .block_image_2,
+  .block_image_4 {
+    width: 70%; /* Larger on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .properties_title {
+    font-size: 1.5rem;
+  }
+
+  .properties_description {
+    font-size: 0.875rem;
+  }
+
+  .block_title {
+    font-size: 1rem;
+  }
+
+  .block_subtitle {
+    font-size: 0.75rem;
+  }
+
+  .block_image_1 {
+    width: 64%; /* Adjusted for smaller screens */
+  }
+
+  .block_image_2 {
+    width: 70%; /* Adjusted for smaller screens */
+  }
+
+  .block_image_3,
+  .block_image_4 {
+    width: 100%; /* Adjusted for smaller screens */
   }
 }

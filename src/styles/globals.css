@@ -5,15 +5,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-  
-  
+
 body {
   margin: 0;
   background-color: #F9F9FA;
+  max-width: 100vw; /* Evita el desplazamiento horizontal */
+  overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
 }
 
 html {
   scroll-behavior: smooth;
+  max-width: 100vw; /* Evita el desplazamiento horizontal */
+  overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
 }
 
 .get_started {

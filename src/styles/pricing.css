@@ -10,7 +10,7 @@
     font-size: 4rem;
     color: black;
     margin-bottom: 40px;
-    text-align: left;
+    text-align: left; /* Align text to the left */
     margin-bottom: 5vh;
 }
 
@@ -32,14 +32,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* Align items to the left */
 }
 
 .card_type {
     font-size: 1.5rem;
     margin-bottom: 10px;
     text-align: left;
-    /* Align text to the left */
     width: 100%;
 }
 
@@ -47,7 +45,6 @@
     font-size: 1.2rem;
     margin-bottom: 30px;
     text-align: left;
-    /* Align text to the left */
     width: 100%;
 }
 
@@ -56,7 +53,6 @@
     padding: 0;
     margin-bottom: 20px;
     text-align: left;
-    /* Align text to the left */
     width: 100%;
     margin-top: 40px;
 }
@@ -70,15 +66,15 @@
     font-size: 1rem;
     margin-right: 5px;
     color: rgb(40, 184, 40);
-    background-color: rgba(150, 233, 158, 0.313); /* Background color for the circle */
-    border-radius: 50%; /* Makes the background circular */
-    width: 24px; /* Fixed width for the circle */
-    height: 24px; /* Fixed height for the circle */
+    background-color: rgba(150, 233, 158, 0.313);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    line-height: 1; /* Ensures the checkmark is centered vertically */
-  }
+    line-height: 1;
+}
 
 .card_button {
     padding: 10px 20px;
@@ -90,7 +86,6 @@
     border-radius: 5px;
     cursor: pointer;
     align-self: center;
-    /* Center the button horizontally */
 }
 
 .price {
@@ -104,6 +99,11 @@
 }
 
 @media (max-width: 768px) {
+    .pricing_title {
+        font-size: 3.5rem;
+        text-align: left; /* Ensure text is aligned to the left */
+    }
+
     .pricing_cards {
         flex-direction: column;
         align-items: center;
@@ -112,5 +112,51 @@
     .pricing_card {
         width: 100%;
         max-width: 300px;
+        padding: 20px;
+    }
+
+    .card_type {
+        font-size: 1.25rem;
+    }
+
+    .card_price {
+        font-size: 1rem;
+    }
+
+    .card_features {
+        margin-top: 20px;
+    }
+
+    .card_button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .price {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing_title {
+        font-size: 3rem;
+        text-align: left; /* Ensure text is aligned to the left */
+    }
+
+    .card_type {
+        font-size: 1rem;
+    }
+
+    .card_price {
+        font-size: 0.875rem;
+    }
+
+    .card_button {
+        font-size: 0.875rem;
+        padding: 6px 12px;
+    }
+
+    .price {
+        font-size: 2rem;
     }
 }

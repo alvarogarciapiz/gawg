@@ -117,7 +117,7 @@ const Generator = () => {
       <p className="generator_subtitle">Answer a few questions to generate your personalized GitHub workflow file.</p>
       <div className="questions_container">
         <div className="question_block">
-          <label className="question_label">Repository Full Name:</label>
+          <label className="question_label">Repository Full Name (e.g. alvarogarciapiz/gawg):</label>
           <input
             type="text"
             className="question_input"
