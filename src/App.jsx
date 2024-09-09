@@ -6,6 +6,7 @@ import Footer from './components/footer';
 import Properties from './components/properties';
 import Generator from './components/generator';
 import Pricing from './components/pricing';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Pricing />
       <Generator />
       <Footer />
+      <Analytics />
     </>
   );
 }
