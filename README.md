@@ -1,5 +1,11 @@
 # GAWG: GitHub Actions Workflow Generator
 
+## 👉🏼 Start here
+Looking for help?
+Check our [Wiki](https://github.com/alvarogarciapiz/gawg/wiki).
+- [**Usage page if you filled the website** form and installed the app](https://github.com/alvarogarciapiz/gawg/wiki/Usage-(If-you-have-filled-the-website-form))
+- [**Usage page if you only installed the app**](https://github.com/alvarogarciapiz/gawg/wiki/Usage-(If-you've-just-installed-the-app))
+
 ## Overview
 
 GAWG (GitHub Actions Workflow Generator) is a comprehensive solution designed to simplify the setup and management of CI/CD workflows in GitHub Actions. The project aims to streamline the process of creating and configuring workflows by leveraging a suite of custom-developed actions and a user-friendly web interface.
