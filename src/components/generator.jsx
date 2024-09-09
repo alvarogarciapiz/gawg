@@ -117,7 +117,8 @@ const Generator = () => {
       <p className="generator_subtitle">Answer a few questions to generate your personalized GitHub workflow file.</p>
       <div className="questions_container">
         <div className="question_block">
-          <label className="question_label">Repository Full Name (e.g. alvarogarciapiz/gawg):</label>
+          <label className="question_label">Repository Full Name:</label>
+          <label className="question_description_label">e.g. github-username/repository-name</label>
           <input
             type="text"
             className="question_input"
@@ -131,7 +132,7 @@ const Generator = () => {
         <div className="question_block">
           <label className="question_label">Technology:</label>
           <select
-            className="question_input"
+            className="question_input short_select"
             name="technology"
             value={formData.technology}
             onChange={handleInputChange}
@@ -154,7 +155,7 @@ const Generator = () => {
         <div className="question_block">
           <label className="question_label">Notify:</label>
           <select
-            className="question_input"
+            className="question_input short_select"
             name="notify"
             value={formData.notify}
             onChange={handleInputChange}
@@ -167,6 +168,7 @@ const Generator = () => {
         </div>
         <div className="question_block">
           <label className="question_label">Push Branches (comma separated):</label>
+          <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
           <input
             type="text"
             className="question_input"
@@ -177,6 +179,8 @@ const Generator = () => {
         </div>
         <div className="question_block">
           <label className="question_label">Schedule Cron:</label>
+          <label className="question_description_label">minute[0,59] hour[0,23] day-month[1,31] month-year[1,12] day-week[0,6] (0=sunday)</label>
+          <label className="question_description_label">e.g. '0 12 * * 4' 👉🏼 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>more help</a></label>
           <input
             type="text"
             className="question_input"
@@ -187,6 +191,7 @@ const Generator = () => {
         </div>
         <div className="question_block">
           <label className="question_label">Pull Request Branches (comma separated):</label>
+          <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
           <input
             type="text"
             className="question_input"
@@ -221,7 +226,7 @@ const Generator = () => {
         <div className="question_block">
           <label className="question_label">Deploy:</label>
           <select
-            className="question_input"
+            className="question_input short_select"
             name="deploy"
             value={formData.deploy}
             onChange={handleInputChange}
