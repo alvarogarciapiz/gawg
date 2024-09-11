@@ -6,7 +6,9 @@ const Nav = () => {
   return (
     <nav className="nav_container">
       <div className="nav_logo">
-        <img src={gawgLogo} alt="GAWG Logo" />
+        <a href="/">
+          <img src={gawgLogo} alt="GAWG Logo" />
+        </a>
       </div>
       <a href="#get-started" className="nav_text get_started">
         Get started

@@ -2,16 +2,22 @@
     width: 85%;
     margin: 0 auto;
     padding: 20px;
-    margin-top: 5vh;
+    margin-top: 0px;
     margin-bottom: 5vh;
+    text-align: center;
 }
 
 .pricing_title {
     font-size: 4rem;
     color: black;
+    margin-bottom: 30px;
+}
+
+.pricing_subtitle {
+    font-size: 1.5rem;
+    color: gray;
     margin-bottom: 40px;
-    text-align: left; /* Align text to the left */
-    margin-bottom: 5vh;
+    margin-top: 0px;
 }
 
 .pricing_cards {
@@ -100,8 +106,15 @@
 
 @media (max-width: 768px) {
     .pricing_title {
-        font-size: 3.5rem;
+        font-size: 3rem;
         text-align: left; /* Ensure text is aligned to the left */
+    }
+
+    .pricing_subtitle {
+        font-size: 1rem;
+        color: gray;
+        margin-bottom: 30px;
+        margin-top: 0px;
     }
 
     .pricing_cards {
@@ -139,8 +152,15 @@
 
 @media (max-width: 480px) {
     .pricing_title {
-        font-size: 3rem;
+        font-size: 2.5rem;
         text-align: left; /* Ensure text is aligned to the left */
+    }
+
+    .pricing_subtitle {
+        font-size: 1rem;
+        color: gray;
+        margin-bottom: 30px;
+        margin-top: 0px;
     }
 
     .card_type {

@@ -1,25 +1,41 @@
 import './styles/globals.css';
+import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Nav from './components/nav';
 import Hero from './components/hero';
 import Features from './components/features';
-import Footer from './components/footer';
 import Properties from './components/properties';
-import Generator from './components/generator';
 import Pricing from './components/pricing';
-import { Analytics } from "@vercel/analytics/react"
+import Generator from './components/generator';
+import Footer from './components/footer';
+import { Analytics } from '@vercel/analytics/react';
+import TermsConditions from './components/TermsConditions';
+import Steps from './components/steps';
+import Macbook from './components/macbook';
+import YouTube from './components/youtube';
 
 function App() {
   return (
-    <>
+    <Router>
       <Nav />
-      <Hero />
-      <Features />
-      <Properties />
-      <Pricing />
-      <Generator />
+      <Routes>
+        <Route path="/" element={
+          <>
+            <Hero />
+            <Features />
+            <Properties />
+            <Steps />
+            <Macbook />
+            <YouTube />
+            <Pricing />
+            <Generator />
+          </>
+        } />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+      </Routes>
       <Footer />
       <Analytics />
-    </>
+    </Router>
   );
 }
 

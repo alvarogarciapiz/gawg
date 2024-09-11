@@ -8,7 +8,7 @@
 
 body {
   margin: 0;
-  background-color: #F9F9FA;
+  background-color: #fcfcfc;
   max-width: 100vw; /* Evita el desplazamiento horizontal */
   overflow-x: hidden; /* Oculta cualquier desbordamiento horizontal */
 }

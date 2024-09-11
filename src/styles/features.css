@@ -3,6 +3,9 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  width: 65%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .features_card {
@@ -10,7 +13,7 @@
   background-size: cover;
   background-position: center;
   border-radius: 35px;
-  padding: 40px;
+  padding: 30px;
   text-align: center;
   color: white;
 }
@@ -18,15 +21,15 @@
 .features_title {
   font-size: 4rem;
   margin-bottom: 20px;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  margin-left: 2vw;
+  margin-right: 2vw;
 }
 
 .features_description {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  margin-left: 15vw;
-  margin-right: 15vw;
+  margin-left: 3vw;
+  margin-right: 3vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
 }
@@ -41,8 +44,15 @@
 
 /* Media queries para dispositivos móviles */
 @media (max-width: 768px) {
+  .features_container {
+    width: 84%;
+    margin: 0 auto;
+  }
+  
   .features_card {
     padding: 20px;
+    border-radius: 20px;
+    width: 100%;
   }
 
   .features_title {
@@ -63,21 +73,28 @@
 }
 
 @media (max-width: 480px) {
+
+  .features_container {
+    width: 84%;
+    margin: 0 auto;
+  }
+
   .features_card {
     padding: 15px;
     border-radius: 20px;
+    width: 100%;
   }
 
   .features_title {
     font-size: 1.5rem;
-    margin-left: 2vw;
-    margin-right: 2vw;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
   }
 
   .features_description {
     font-size: 0.875rem;
-    margin-left: 2vw;
-    margin-right: 2vw;
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
   }
 
   .features_image {

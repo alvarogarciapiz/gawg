@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/properties.css';
 import heroPropertiesImage from '../assets/hero_properties.png';
 import openai from '../assets/openai.png';
-import notifications from '../assets/notifications.png';
+import notifications from '../assets/gawg_notifications.png';
 import github from '../assets/github.png';
 
 const Properties = () => {

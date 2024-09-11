@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/generator.css';
+import '../styles/globals.css';
 
 const Generator = () => {
   const [formData, setFormData] = useState({
@@ -79,10 +80,10 @@ const Generator = () => {
   const handleSubmit = async () => {
     let newErrors = { repositoryFullName: '', email: '' };
     if (!formData.repositoryFullName.trim()) {
-      newErrors.repositoryFullName = 'Repository Full Name is mandatory.';
+      newErrors.repositoryFullName = '❗️ Repository Full Name is mandatory.';
     }
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is mandatory.';
+      newErrors.email = '❗️ Email is mandatory.';
     }
 
     if (newErrors.repositoryFullName || newErrors.email) {
@@ -116,6 +117,7 @@ const Generator = () => {
       <h2 className="generator_title">Create your custom GitHub workflow</h2>
       <p className="generator_subtitle">Answer a few questions to generate your personalized GitHub workflow file.</p>
       <div className="questions_container">
+      <p className="generator_title_h3">General information</p>
         <div className="question_block">
           <label className="question_label">Repository Full Name:</label>
           <label className="question_description_label">e.g. github-username/repository-name</label>
@@ -129,6 +131,7 @@ const Generator = () => {
           />
           {errors.repositoryFullName && <p className="error_message">{errors.repositoryFullName}</p>}
         </div>
+
         <div className="question_block">
           <label className="question_label">Technology:</label>
           <select
@@ -142,18 +145,24 @@ const Generator = () => {
             <option value="python">Python</option>
           </select>
         </div>
+
         <div className="question_block">
-          <label className="question_label">Docker:</label>
-          <input
-            type="checkbox"
-            className="question_input"
-            name="docker"
-            checked={formData.docker}
-            onChange={handleInputChange}
-          />
+          <label className="question_label">Are you using Docker?</label>
+          <div className="checkbox_container">
+            <input
+              type="checkbox"
+              className="question_input"
+              name="docker"
+              checked={formData.docker}
+              onChange={handleInputChange}
+            />
+            <span>Yes</span>
+          </div>
         </div>
+
         <div className="question_block">
-          <label className="question_label">Notify:</label>
+          <label className="question_label">Send notifications?</label>
+          <label className="question_description_label">You can send a notification to your Slack or Discord chat</label>
           <select
             className="question_input short_select"
             name="notify"
@@ -166,6 +175,23 @@ const Generator = () => {
             <option value="msteams">Microsoft Teams</option>
           </select>
         </div>
+
+        <div className="question_block">
+          <label className="question_label">Deploy:</label>
+          <label className="question_description_label">Chose the deployment method for your app</label>
+          <select
+            className="question_input short_select"
+            name="deploy"
+            value={formData.deploy}
+            onChange={handleInputChange}
+          >
+            <option value="none">None</option>
+            <option value="dockerhub">DockerHub</option>
+            <option value="s3">S3</option>
+          </select>
+        </div>
+
+        <p className="generator_title_h3">Triggers</p>
         <div className="question_block">
           <label className="question_label">Push Branches (comma separated):</label>
           <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
@@ -177,6 +203,7 @@ const Generator = () => {
             onChange={handleInputChange}
           />
         </div>
+
         <div className="question_block">
           <label className="question_label">Schedule Cron:</label>
           <label className="question_description_label">minute[0,59] hour[0,23] day-month[1,31] month-year[1,12] day-week[0,6] (0=sunday)</label>
@@ -189,6 +216,7 @@ const Generator = () => {
             onChange={handleInputChange}
           />
         </div>
+
         <div className="question_block">
           <label className="question_label">Pull Request Branches (comma separated):</label>
           <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
@@ -200,20 +228,26 @@ const Generator = () => {
             onChange={handleInputChange}
           />
         </div>
+
+        <p className="generator_title_h3">Runners</p>
         <div className="question_block">
-          <label className="question_label">Runner Type:</label>
-          <input
-            type="checkbox"
-            className="question_input"
-            name="runner.type"
-            checked={formData.runner.type === 'self-hosted'}
-            onChange={handleRunnerTypeChange}
-          />
-          <span>Self-hosted</span>
+          <label className="question_label">Do you plan to use your self-hosted runnners?</label>
+          <label className="question_description_label">Not sure? Learn about <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>self-hosted runners</a></label>
+          <div className="checkbox_container">
+            <input
+              type="checkbox"
+              className="question_input"
+              name="runner.type"
+              checked={formData.runner.type === 'self-hosted'}
+              onChange={handleRunnerTypeChange}
+            />
+            <span>Yes</span>
+          </div>
         </div>
         {formData.runner.type === 'self-hosted' && (
           <div className="question_block">
             <label className="question_label">Runner Labels (comma separated):</label>
+            <label className="question_description_label">e.g. 'self-hosted,linux,node'</label>
             <input
               type="text"
               className="question_input"
@@ -223,19 +257,6 @@ const Generator = () => {
             />
           </div>
         )}
-        <div className="question_block">
-          <label className="question_label">Deploy:</label>
-          <select
-            className="question_input short_select"
-            name="deploy"
-            value={formData.deploy}
-            onChange={handleInputChange}
-          >
-            <option value="none">None</option>
-            <option value="dockerhub">DockerHub</option>
-            <option value="s3">S3</option>
-          </select>
-        </div>
         <div className="question_block">
           <label className="question_label">Email:</label>
           <input
@@ -248,8 +269,12 @@ const Generator = () => {
           />
           {errors.email && <p className="error_message">{errors.email}</p>}
         </div>
+        
       </div>
-      <button className="submit_button" onClick={handleSubmit}>Generate File</button>
+      <p className="generator_note">
+      <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>only</strong> in the repository where you want the workflow to be executed.<br /><br />After installation, please refer to the <a href='https://github.com/alvarogarciapiz/gawg/wiki' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit' }}>Terms of Service</a> and <a style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</a>.
+      </p>
+      <button className="submit_button" onClick={handleSubmit}>Install in your repo 🥳</button>
     </div>
   );
 };

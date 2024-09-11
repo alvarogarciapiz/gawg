@@ -7,13 +7,13 @@
   padding: 20px;
   margin-left: 25vw;
   margin-right: 25vw;
+  margin-top: 3vh;
 }
 
 .hero_title {
   color: rgb(20, 20, 32);
   font-weight: 700;
   font-size: 82px;
-  margin-top: 10vh;
   margin-bottom: 0;
   font-weight: 700;
   letter-spacing: -2.4px;
@@ -71,7 +71,7 @@
   .hero_image {
     max-width: 100%;
     height: auto;
-    margin-bottom: 12vh;
+    margin-bottom: 5vh;
     margin-top: 0;
   }
 

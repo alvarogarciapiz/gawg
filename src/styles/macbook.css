@@ -1,0 +1,71 @@
+.macbook_container {
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 0px;
+}
+
+.macbook_title {
+  font-size: 4rem;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.macbook_subtitle {
+  font-size: 1.5rem;
+  color: gray;
+  margin-bottom: 40px;
+}
+
+.macbook_image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .macbook_container {
+    padding: 30px;
+  }
+
+  .macbook_title {
+    font-size: 3rem;
+  }
+
+  .macbook_subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .macbook_container {
+    padding: 20px;
+    width: 90%;
+    max-width: fit-content;
+  }
+
+  .macbook_title {
+    font-size: 2.5rem;
+  }
+
+  .macbook_subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .macbook_container {
+    padding: 15px;
+    width: 86%;
+    max-width: fit-content;
+  }
+
+  .macbook_title {
+    font-size: 2rem;
+  }
+
+  .macbook_subtitle {
+    font-size: 0.875rem;
+  }
+}
