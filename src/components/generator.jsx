@@ -198,8 +198,7 @@ const Generator = () => {
           >
             <option value="none">None</option>
             <option value="slack">Slack</option>
-            <option value="email">Email</option>
-            <option value="msteams">Microsoft Teams</option>
+            <option value="discord">Discord</option>
           </select>
         </div>
 
