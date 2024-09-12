@@ -79,29 +79,45 @@ const Generator = () => {
 
   const handleSubmit = async () => {
     let newErrors = { repositoryFullName: '', email: '' };
-  
+
     // Regex for email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     // Regex for repository full name validation (e.g., alvaro/test)
     const repoNameRegex = /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/;
-  
+    // Regex for triggers validation (comma-separated words without spaces)
+    const triggersRegex = /^(\w+)(,\w+)*$/;
+    // Regex for schedule cron validation
+    const cronRegex = /^(\*|([0-5]?\d)) (\*|([01]?\d|2[0-3])) (\*|([01]?\d|2[0-9]|3[01])) (\*|(0?[1-9]|1[0-2])) (\*|([0-6]))$/;
+
     if (!formData.repositoryFullName.trim()) {
       newErrors.repositoryFullName = '❗️ Repository Full Name is mandatory.';
     } else if (!repoNameRegex.test(formData.repositoryFullName.trim())) {
       newErrors.repositoryFullName = '❗️ Repository Full Name must be in the format "username/repository".';
     }
-  
+
     if (!formData.email.trim()) {
       newErrors.email = '❗️ Email is mandatory.';
     } else if (!emailRegex.test(formData.email.trim())) {
       newErrors.email = '❗️ Invalid email format.';
     }
-  
-    if (newErrors.repositoryFullName || newErrors.email) {
+
+    // Validate triggers
+    const { push, schedule, pull_request } = formData.triggers;
+    if (push.branches && !triggersRegex.test(push.branches.trim())) {
+      newErrors.pushBranches = '❗️ Push branches must be comma-separated words without spaces.';
+    }
+    if (pull_request.branches && !triggersRegex.test(pull_request.branches.trim())) {
+      newErrors.pullRequestBranches = '❗️ Pull request branches must be comma-separated words without spaces.';
+    }
+    if (schedule.cron && !cronRegex.test(schedule.cron.trim())) {
+      newErrors.scheduleCron = '❗️ Schedule cron must be in the format "minute hour day-of-month month day-of-week" with valid values.';
+    }
+
+    if (newErrors.repositoryFullName || newErrors.email || newErrors.pushBranches || newErrors.pullRequestBranches || newErrors.scheduleCron) {
       setErrors(newErrors);
       return;
     }
-  
+
     try {
       const response = await fetch('https://7spaa9shqg.execute-api.eu-north-1.amazonaws.com/production/store-user-inputs', {
         method: 'POST',
@@ -110,7 +126,7 @@ const Generator = () => {
         },
         body: JSON.stringify(formData)
       });
-  
+
       if (response.ok) {
         console.log('Data saved successfully');
         // Redirect user to install the GitHub App
@@ -128,7 +144,7 @@ const Generator = () => {
       <h2 className="generator_title">Create your custom GitHub workflow</h2>
       <p className="generator_subtitle">Answer a few questions to generate your personalized GitHub workflow file.</p>
       <div className="questions_container">
-      <p className="generator_title_h3">General information</p>
+        <p className="generator_title_h3">General information</p>
         <div className="question_block">
           <label className="question_label">Repository Full Name:</label>
           <label className="question_description_label">e.g. github-username/repository-name</label>
@@ -151,7 +167,7 @@ const Generator = () => {
             value={formData.technology}
             onChange={handleInputChange}
           >
-            <option value="java">Java</option>
+            <option value="maven">Maven Java</option>
             <option value="node">Node</option>
             <option value="python">Python</option>
           </select>
@@ -213,6 +229,7 @@ const Generator = () => {
             value={formData.triggers.push.branches}
             onChange={handleInputChange}
           />
+          {errors.pushBranches && <p className="error_message">{errors.pushBranches}</p>}
         </div>
 
         <div className="question_block">
@@ -226,6 +243,7 @@ const Generator = () => {
             value={formData.triggers.schedule.cron}
             onChange={handleInputChange}
           />
+          {errors.scheduleCron && <p className="error_message">{errors.scheduleCron}</p>}
         </div>
 
         <div className="question_block">
@@ -238,6 +256,7 @@ const Generator = () => {
             value={formData.triggers.pull_request.branches}
             onChange={handleInputChange}
           />
+          {errors.pullRequestBranches && <p className="error_message">{errors.pullRequestBranches}</p>}
         </div>
 
         <p className="generator_title_h3">Runners</p>
@@ -280,10 +299,10 @@ const Generator = () => {
           />
           {errors.email && <p className="error_message">{errors.email}</p>}
         </div>
-        
+
       </div>
       <p className="generator_note">
-      <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>only</strong> in the repository where you want the workflow to be executed.<br /><br />After installation, please refer to the <a href='https://github.com/alvarogarciapiz/gawg/wiki' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit' }}>Terms of Service</a> and <a style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</a>.
+        <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>only</strong> in the repository where you want the workflow to be executed.<br /><br />After installation, please refer to the <a href='https://github.com/alvarogarciapiz/gawg/wiki' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit' }}>Terms of Service</a> and <a style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</a>.
       </p>
       <button className="submit_button" onClick={handleSubmit}>Install in your repo 🥳</button>
     </div>
