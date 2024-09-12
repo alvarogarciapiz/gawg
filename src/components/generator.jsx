@@ -79,18 +79,29 @@ const Generator = () => {
 
   const handleSubmit = async () => {
     let newErrors = { repositoryFullName: '', email: '' };
+  
+    // Regex for email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Regex for repository full name validation (e.g., alvaro/test)
+    const repoNameRegex = /^[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+$/;
+  
     if (!formData.repositoryFullName.trim()) {
       newErrors.repositoryFullName = '❗️ Repository Full Name is mandatory.';
+    } else if (!repoNameRegex.test(formData.repositoryFullName.trim())) {
+      newErrors.repositoryFullName = '❗️ Repository Full Name must be in the format "username/repository".';
     }
+  
     if (!formData.email.trim()) {
       newErrors.email = '❗️ Email is mandatory.';
+    } else if (!emailRegex.test(formData.email.trim())) {
+      newErrors.email = '❗️ Invalid email format.';
     }
-
+  
     if (newErrors.repositoryFullName || newErrors.email) {
       setErrors(newErrors);
       return;
     }
-
+  
     try {
       const response = await fetch('https://7spaa9shqg.execute-api.eu-north-1.amazonaws.com/production/store-user-inputs', {
         method: 'POST',
