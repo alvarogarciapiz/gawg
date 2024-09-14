@@ -130,7 +130,7 @@ const Generator = () => {
       if (response.ok) {
         console.log('Data saved successfully');
         // Redirect user to install the GitHub App
-        window.location.href = 'https://github.com/apps/gawg-workflow-generator/installations/new';
+        window.location.href = 'https://github.com/apps/workflow-generator-github-actions/installations/new';
       } else {
         console.error('Error saving data');
       }
