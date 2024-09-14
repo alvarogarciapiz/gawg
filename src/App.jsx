@@ -36,8 +36,8 @@ function App() {
         <Route path="/terms-conditions" element={<TermsConditions />} />
       </Routes>
       <Footer />
-      <Analytics />
       <SpeedInsights />
+      <Analytics />
     </Router>
   );
 }
