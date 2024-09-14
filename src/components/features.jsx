@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/features.css';
-import featuresBg from '../assets/features_bg.jpg';
-import iPadFeature from '../assets/iPad_feature.png';
+import featuresBg from '../assets/features_bg.webp';
+import iPadFeature from '../assets/iPad_feature.webp';
 
 const Features = () => {
   return (

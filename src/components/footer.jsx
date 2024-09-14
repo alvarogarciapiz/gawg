@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/footer.css';
-import gawgLogo from '../assets/gawg_logo_white.png';
+import gawgLogo from '../assets/gawg_logo_white.webp';
 
 const Footer = () => {
   const handleLogoClick = (e) => {

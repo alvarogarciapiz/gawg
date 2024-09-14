@@ -1,14 +1,29 @@
 # GAWG: GitHub Actions Workflow Generator
 
-## 👉🏼 Start here
-Looking for help?
-Check our [Wiki](https://github.com/alvarogarciapiz/gawg/wiki).
+Explore **GAWG**, your go-to solution for effortless CI/CD integration with GitHub Actions. Automate your pipeline in minutes with custom workflows tailored to your project, without the hassle of manual configuration.
+
+# Quick links if you're already familiar
+## 👋🏻 Start here
 - [**Usage page if you filled the website** form and installed the app](https://github.com/alvarogarciapiz/gawg/wiki/Usage-(If-you-have-filled-the-website-form))
 - [**Usage page if you only installed the app**](https://github.com/alvarogarciapiz/gawg/wiki/Usage-(If-you've-just-installed-the-app))
+
+## 🧠 Don't forget
+- [Secrets configuration](https://github.com/alvarogarciapiz/gawg/wiki/Secrets-configuration)
+- [workflow_config.yml configuration](https://github.com/alvarogarciapiz/gawg/wiki/Configure-workflow_config.yml-file)
+- [sonar‐project.properties configuration](https://github.com/alvarogarciapiz/gawg/wiki/Configure-sonar%E2%80%90project.properties-file)
+
+
+# 🛫 How to start?
+
+1. **Fill out the form** – Provide your project details like repo name, technology stack, and workflow preferences on the [website](https://gawg.lvrpiz.com/#get-started).
+2. **Install the GAWG GitHub App** – Connect your repository seamlessly to the app for automatic workflow generation.
+3. **Configure necessary files** – If needed, adjust configuration files for optimal performance and customization to your CI/CD pipeline.
 
 ## Overview
 
 GAWG (GitHub Actions Workflow Generator) is a comprehensive solution designed to simplify the setup and management of CI/CD workflows in GitHub Actions. The project aims to streamline the process of creating and configuring workflows by leveraging a suite of custom-developed actions and a user-friendly web interface.
+
+# More about GAWG
 
 ## How It Works
 

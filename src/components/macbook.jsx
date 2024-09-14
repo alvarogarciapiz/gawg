@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/macbook.css';
-import discordImage from '../assets/discord.png';
+import discordImage from '../assets/discord.webp';
 
 const Macbook = () => {
   return (

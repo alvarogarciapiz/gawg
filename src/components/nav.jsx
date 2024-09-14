@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/nav.css';
-import gawgLogo from '../assets/gawg_logo.png';
+import gawgLogo from '../assets/gawg_logo.webp';
 
 const Nav = () => {
   return (

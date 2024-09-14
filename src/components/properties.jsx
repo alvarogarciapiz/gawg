@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/properties.css';
-import heroPropertiesImage from '../assets/hero_properties.png';
-import openai from '../assets/openai.png';
-import notifications from '../assets/gawg_notifications.png';
-import github from '../assets/github.png';
+import heroPropertiesImage from '../assets/hero_properties.webp';
+import openai from '../assets/openai.webp';
+import notifications from '../assets/gawg_notifications.webp';
+import github from '../assets/github.webp';
 
 const Properties = () => {
   return (
