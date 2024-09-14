@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postbuild": "cp public/sitemap.xml dist/sitemap.xml",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vite build"

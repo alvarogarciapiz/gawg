@@ -18,11 +18,11 @@ const Footer = () => {
       </div>
       <div className="footer_right">
         <a href="#get-started" className="footer_link get_started">Get started</a>
-        <a>·</a>
+        <span>·</span>
         <a href="https://github.com/alvarogarciapiz/gawg/wiki" className="footer_link get_started">Documentation</a>
-        <a>·</a>
+        <span>·</span>
         <a href="https://www.linkedin.com/in/alvarogarciapiz/" className="footer_link">@lvrpiz</a>
-        <a>·</a>
+        <span>·</span>
         <a href="mailto:gawg@lvrpiz.com?subject=Hi%20there%20👋🏻&body=are%20you%20interested%20in%20gawg?%20do%20you%20have%20any%20questions?%20are%20you%20contacting%20us%20through%20the%20business%20plan?" className="footer_link">Contact</a>
       </div>
     </footer>

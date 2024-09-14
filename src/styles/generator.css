@@ -6,20 +6,20 @@
 
 .generator_title {
   font-size: 3rem;
-  color: black;
+  color: #000000;
   margin-bottom: 0px;
 }
 
 .generator_title_h3 {
   font-size: 2rem;
   font-weight: bold;
-  color: black;
+  color: #000000;
   margin-bottom: 10px;
 }
 
 .generator_subtitle {
   font-size: 1.5rem;
-  color: gray;
+  color: #4a4a4a;
   margin-bottom: 5px;
 }
 
@@ -43,7 +43,7 @@
 
 .question_description_label {
   font-size: 1rem;
-  color: gray;
+  color: #4a4a4a;
   margin-bottom: 10px;
 }
 
@@ -58,8 +58,8 @@
 .submit_button {
   padding: 10px 20px;
   font-size: 1.2rem;
-  color: white;
-  background-color: #007bff;
+  color: #ffffff;
+  background-color: #0b61be;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -70,11 +70,11 @@
 }
 
 .submit_button:hover {
-  background-color: #0056b3;
+  background-color: #003f7f;
 }
 
 .error_message {
-  color: rgba(223, 14, 14, 0.794);
+  color: #df0e0e;
   font-size: 0.9rem;
   margin-top: 5px;
   font-weight: 400;
@@ -104,8 +104,8 @@
 }
 
 .short_select:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+  border-color: #0056b3;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.25);
   outline: none;
 }
 

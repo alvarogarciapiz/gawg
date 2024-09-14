@@ -140,15 +140,16 @@ const Generator = () => {
   };
 
   return (
-    <div id="get-started" className="generator_container">
+        <div id="get-started" className="generator_container">
       <h2 className="generator_title">Create your custom GitHub workflow</h2>
       <p className="generator_subtitle">Answer a few questions to generate your personalized GitHub workflow file.</p>
       <div className="questions_container">
         <p className="generator_title_h3">General information</p>
         <div className="question_block">
-          <label className="question_label">Repository Full Name:</label>
+          <label className="question_label" htmlFor="repositoryFullName">Repository Full Name:</label>
           <label className="question_description_label">e.g. github-username/repository-name</label>
           <input
+            id="repositoryFullName"
             type="text"
             className="question_input"
             name="repositoryFullName"
@@ -158,10 +159,11 @@ const Generator = () => {
           />
           {errors.repositoryFullName && <p className="error_message">{errors.repositoryFullName}</p>}
         </div>
-
+    
         <div className="question_block">
-          <label className="question_label">Technology:</label>
+          <label className="question_label" htmlFor="technology">Technology:</label>
           <select
+            id="technology"
             className="question_input short_select"
             name="technology"
             value={formData.technology}
@@ -172,11 +174,12 @@ const Generator = () => {
             <option value="python">Python</option>
           </select>
         </div>
-
+    
         <div className="question_block">
-          <label className="question_label">Are you using Docker?</label>
+          <label className="question_label" htmlFor="docker">Are you using Docker?</label>
           <div className="checkbox_container">
             <input
+              id="docker"
               type="checkbox"
               className="question_input"
               name="docker"
@@ -186,11 +189,12 @@ const Generator = () => {
             <span>Yes</span>
           </div>
         </div>
-
+    
         <div className="question_block">
-          <label className="question_label">Send notifications?</label>
+          <label className="question_label" htmlFor="notify">Send notifications?</label>
           <label className="question_description_label">You can send a notification to your Slack or Discord chat</label>
           <select
+            id="notify"
             className="question_input short_select"
             name="notify"
             value={formData.notify}
@@ -201,11 +205,12 @@ const Generator = () => {
             <option value="discord">Discord</option>
           </select>
         </div>
-
+    
         <div className="question_block">
-          <label className="question_label">Deploy:</label>
+          <label className="question_label" htmlFor="deploy">Deploy:</label>
           <label className="question_description_label">Chose the deployment method for your app</label>
           <select
+            id="deploy"
             className="question_input short_select"
             name="deploy"
             value={formData.deploy}
@@ -216,12 +221,13 @@ const Generator = () => {
             <option value="s3">S3</option>
           </select>
         </div>
-
+    
         <p className="generator_title_h3">Triggers</p>
         <div className="question_block">
-          <label className="question_label">Push Branches (comma separated):</label>
+          <label className="question_label" htmlFor="triggersPushBranches">Push Branches (comma separated):</label>
           <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
           <input
+            id="triggersPushBranches"
             type="text"
             className="question_input"
             name="triggers.push.branches"
@@ -230,12 +236,13 @@ const Generator = () => {
           />
           {errors.pushBranches && <p className="error_message">{errors.pushBranches}</p>}
         </div>
-
+    
         <div className="question_block">
-          <label className="question_label">Schedule Cron:</label>
+          <label className="question_label" htmlFor="triggersScheduleCron">Schedule Cron:</label>
           <label className="question_description_label">minute[0,59] hour[0,23] day-month[1,31] month-year[1,12] day-week[0,6] (0=sunday)</label>
-          <label className="question_description_label">e.g. '0 12 * * 4' 👉🏼 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>more help</a></label>
+          <label className="question_description_label">e.g. '0 12 * * 4' 👉🏼 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#007BFF' }}>more help</a></label>
           <input
+            id="triggersScheduleCron"
             type="text"
             className="question_input"
             name="triggers.schedule.cron"
@@ -244,11 +251,12 @@ const Generator = () => {
           />
           {errors.scheduleCron && <p className="error_message">{errors.scheduleCron}</p>}
         </div>
-
+    
         <div className="question_block">
-          <label className="question_label">Pull Request Branches (comma separated):</label>
+          <label className="question_label" htmlFor="triggersPullRequestBranches">Pull Request Branches (comma separated):</label>
           <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
           <input
+            id="triggersPullRequestBranches"
             type="text"
             className="question_input"
             name="triggers.pull_request.branches"
@@ -257,13 +265,14 @@ const Generator = () => {
           />
           {errors.pullRequestBranches && <p className="error_message">{errors.pullRequestBranches}</p>}
         </div>
-
+    
         <p className="generator_title_h3">Runners</p>
         <div className="question_block">
-          <label className="question_label">Do you plan to use your self-hosted runnners?</label>
-          <label className="question_description_label">Not sure? Learn about <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>self-hosted runners</a></label>
+          <label className="question_label" htmlFor="runnerType">Do you plan to use your self-hosted runners?</label>
+          <label className="question_description_label">Not sure? Learn about <a href="https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#007BFF' }}>self-hosted runners</a></label>
           <div className="checkbox_container">
             <input
+              id="runnerType"
               type="checkbox"
               className="question_input"
               name="runner.type"
@@ -275,9 +284,10 @@ const Generator = () => {
         </div>
         {formData.runner.type === 'self-hosted' && (
           <div className="question_block">
-            <label className="question_label">Runner Labels (comma separated):</label>
+            <label className="question_label" htmlFor="runnerLabels">Runner Labels (comma separated):</label>
             <label className="question_description_label">e.g. 'self-hosted,linux,node'</label>
             <input
+              id="runnerLabels"
               type="text"
               className="question_input"
               name="runner.labels"
@@ -287,8 +297,9 @@ const Generator = () => {
           </div>
         )}
         <div className="question_block">
-          <label className="question_label">Email:</label>
+          <label className="question_label" htmlFor="email">Email:</label>
           <input
+            id="email"
             type="email"
             className="question_input"
             name="email"
@@ -298,10 +309,9 @@ const Generator = () => {
           />
           {errors.email && <p className="error_message">{errors.email}</p>}
         </div>
-
       </div>
       <p className="generator_note">
-        <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>only</strong> in the repository where you want the workflow to be executed.<br /><br />After installation, please refer to the <a href='https://github.com/alvarogarciapiz/gawg/wiki' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit' }}>Terms of Service</a> and <a style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</a>.
+        <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>only</strong> in the repository where you want the workflow to be executed.<br /><br />After installation, please refer to the <a href='https://github.com/alvarogarciapiz/gawg/wiki' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit' }}>Terms of Service</a> and <span style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</span>.
       </p>
       <button className="submit_button" onClick={handleSubmit}>Install in your repo 🥳</button>
     </div>

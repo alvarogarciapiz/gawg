@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /private/
+
+User-agent: Googlebot
+Disallow:
+
+User-agent: *
+Disallow: /*?sessionid=
+
+User-agent: *
+Allow: /images/
+
+User-agent: *
+Disallow: /admin/
+
+User-agent: *
+Disallow: /config/
+
+Sitemap: https://www.tusitio.com/sitemap.xml
