@@ -28,7 +28,7 @@ const Generator = () => {
       type: 'github', // Default to 'github'
       labels: ''
     },
-    deploy: 'none' // Default to 'none'
+    deployment: 'none' // Default to 'none'
   });
 
   const [errors, setErrors] = useState({
@@ -213,7 +213,7 @@ const Generator = () => {
             id="deployment"
             className="question_input short_select"
             name="deployment"
-            value={formData.deploy}
+            value={formData.deployment}
             onChange={handleInputChange}
           >
             <option value="none">None</option>
