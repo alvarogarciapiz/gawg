@@ -207,12 +207,12 @@ const Generator = () => {
         </div>
     
         <div className="question_block">
-          <label className="question_label" htmlFor="deploy">Deploy:</label>
+          <label className="question_label" htmlFor="deployment">Deploy:</label>
           <label className="question_description_label">Chose the deployment method for your app</label>
           <select
-            id="deploy"
+            id="deployment"
             className="question_input short_select"
-            name="deploy"
+            name="deployment"
             value={formData.deploy}
             onChange={handleInputChange}
           >
