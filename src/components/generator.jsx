@@ -218,7 +218,8 @@ const Generator = () => {
           >
             <option value="none">None</option>
             <option value="dockerhub">DockerHub</option>
-            <option value="s3">S3</option>
+            <option value="aws-s3">AWS S3</option>
+            <option value="aws-ecr">AWS ECR</option>
           </select>
         </div>
     
