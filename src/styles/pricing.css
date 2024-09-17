@@ -104,6 +104,13 @@
     background-color: #363636;
 }
 
+.contact_link {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
     .pricing_title {
         font-size: 3rem;

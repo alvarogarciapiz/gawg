@@ -23,7 +23,7 @@ const Footer = () => {
         <span>·</span>
         <a href="https://www.linkedin.com/in/alvarogarciapiz/" className="footer_link">@lvrpiz</a>
         <span>·</span>
-        <a href="mailto:gawg@lvrpiz.com?subject=Hi%20there%20👋🏻&body=are%20you%20interested%20in%20gawg?%20do%20you%20have%20any%20questions?%20are%20you%20contacting%20us%20through%20the%20business%20plan?" className="footer_link">Contact</a>
+        <a href="mailto:gawg@lvrpiz.com?subject=Let's%20Talk%20About%20GAWG%20🚀&body=Hi%20there!%20I'm%20interested%20in%20learning%20more%20about%20GAWG.%20Could%20you%20help%20answer%20some%20questions%20or%20provide%20details%20about%20the%20Business%20Plan?" className="footer_link">Contact</a>
       </div>
     </footer>
   );
