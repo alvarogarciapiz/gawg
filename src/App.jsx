@@ -12,6 +12,7 @@ import TermsConditions from './components/TermsConditions';
 import Steps from './components/steps';
 import Macbook from './components/macbook';
 import YouTube from './components/youtube';
+import Users from './components/users';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -25,6 +26,7 @@ function App() {
           <>
             <Hero />
             <Features />
+            <Users />
             <Properties />
             <Steps />
             <Macbook />

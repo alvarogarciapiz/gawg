@@ -3,9 +3,9 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  width: 65%;
   margin: 0 auto;
-  padding: 20px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 .features_card {
@@ -23,6 +23,7 @@
   margin-bottom: 20px;
   margin-left: 2vw;
   margin-right: 2vw;
+  margin-top: 2vh;
 }
 
 .features_description {

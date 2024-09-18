@@ -37,7 +37,7 @@ const Properties = () => {
         <div className="properties_block properties_block4">
           <div>
             <h3 className="block_title">AI auto-changelog</h3>
-            <p className="block_subtitle">Capture Every Change, Automatically. AI Simplifies Your Documentation.</p>
+            <p className="block_subtitle">Capture Every Change automatically with AI.</p>
             <img src={openai} alt="OpenAI logo" className="block_image_4" />
           </div>
         </div>
