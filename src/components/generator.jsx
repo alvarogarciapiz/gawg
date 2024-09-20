@@ -172,6 +172,8 @@ const Generator = () => {
             <option value="maven">Maven Java</option>
             <option value="node">Node</option>
             <option value="python">Python</option>
+            <option value="go">Go</option>
+            <option value="ruby">Ruby</option>
           </select>
         </div>
     
