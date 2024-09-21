@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="footer_right">
         <a href="#get-started" className="footer_link get_started">Get started</a>
         <span>·</span>
-        <a href="https://github.com/alvarogarciapiz/gawg/wiki" className="footer_link get_started">Documentation</a>
+        <a href="/documentation" className="footer_link get_started">Documentation</a>
         <span>·</span>
         <a href="https://www.linkedin.com/in/alvarogarciapiz/" className="footer_link">@lvrpiz</a>
         <span>·</span>

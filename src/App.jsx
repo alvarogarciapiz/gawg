@@ -13,6 +13,7 @@ import Steps from './components/steps';
 import Macbook from './components/macbook';
 import YouTube from './components/youtube';
 import Users from './components/users';
+import Documentation from './components/documentation';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -36,6 +37,7 @@ function App() {
           </>
         } />
         <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/documentation" element={<Documentation />} />
       </Routes>
       <Footer />
       <SpeedInsights />

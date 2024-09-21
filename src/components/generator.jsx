@@ -3,6 +3,8 @@ import '../styles/generator.css';
 import '../styles/globals.css';
 
 const Generator = () => {
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     repositoryFullName: '',
     email: '', // Nuevo campo de correo electrónico
@@ -118,6 +120,7 @@ const Generator = () => {
       return;
     }
 
+    setLoading(true);
     try {
       const response = await fetch('https://7spaa9shqg.execute-api.eu-north-1.amazonaws.com/production/store-user-inputs', {
         method: 'POST',
@@ -136,11 +139,13 @@ const Generator = () => {
       }
     } catch (error) {
       console.error('Error saving data:', error);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-        <div id="get-started" className="generator_container">
+    <div id="get-started" className="generator_container">
       <h2 className="generator_title">Create your custom GitHub workflow</h2>
       <p className="generator_subtitle">Answer a few questions to generate your personalized GitHub workflow file.</p>
       <div className="questions_container">
@@ -159,7 +164,7 @@ const Generator = () => {
           />
           {errors.repositoryFullName && <p className="error_message">{errors.repositoryFullName}</p>}
         </div>
-    
+
         <div className="question_block">
           <label className="question_label" htmlFor="technology">Technology:</label>
           <select
@@ -173,10 +178,15 @@ const Generator = () => {
             <option value="node">Node</option>
             <option value="python">Python</option>
             <option value="go">Go</option>
-            <option value="ruby">Ruby</option>
+            <option value="ruby" disabled>Ruby (Pro Plan)</option>
+            <option value="php" disabled>PHP (Pro Plan)</option>
+            <option value="spring" disabled>Spring (Pro Plan)</option>
+            <option value="laravel" disabled>Laravel (Pro Plan)</option>
+            <option value="flask" disabled>Flask (Pro Plan)</option>
+            <option value="express" disabled>Express (Pro Plan)</option>
           </select>
         </div>
-    
+
         <div className="question_block">
           <label className="question_label" htmlFor="docker">Are you using Docker?</label>
           <div className="checkbox_container">
@@ -191,10 +201,10 @@ const Generator = () => {
             <span>Yes</span>
           </div>
         </div>
-    
+
         <div className="question_block">
           <label className="question_label" htmlFor="notify">Send notifications?</label>
-          <label className="question_description_label">You can send a notification to your Slack or Discord chat</label>
+          <label className="question_description_label">Send a notification to your Slack or Discord chat</label>
           <select
             id="notify"
             className="question_input short_select"
@@ -205,9 +215,12 @@ const Generator = () => {
             <option value="none">None</option>
             <option value="slack">Slack</option>
             <option value="discord">Discord</option>
+            <option value="msteams" disabled>MS Teams (Pro Plan)</option>
+            <option value="telegram" disabled>Telegram (Pro Plan)</option>
+            <option value="zoom" disabled>Zoom (Pro Plan)</option>
           </select>
         </div>
-    
+
         <div className="question_block">
           <label className="question_label" htmlFor="deployment">Deploy:</label>
           <label className="question_description_label">Chose the deployment method for your app</label>
@@ -222,13 +235,18 @@ const Generator = () => {
             <option value="dockerhub">DockerHub</option>
             <option value="aws-s3">AWS S3</option>
             <option value="aws-ecr">AWS ECR</option>
+            <option value="aws-eks" disabled>AWS EKS (Pro Plan)</option>
+            <option value="aws-generic" disabled>AWS Other services (Pro Plan)</option>
+            <option value="azure" disabled>Azure Generic (Pro Plan)</option>
+            <option value="gcp" disabled>GCP Generic (Pro Plan)</option>
+            <option value="github" disabled>GitHub (Pro Plan)</option>
           </select>
         </div>
-    
+
         <p className="generator_title_h3">Triggers</p>
         <div className="question_block">
           <label className="question_label" htmlFor="triggersPushBranches">Push Branches (comma separated):</label>
-          <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
+          <label className="question_description_label">e.g. 'main,development' or <strong>leave blank</strong> if none.</label>
           <input
             id="triggersPushBranches"
             type="text"
@@ -239,10 +257,10 @@ const Generator = () => {
           />
           {errors.pushBranches && <p className="error_message">{errors.pushBranches}</p>}
         </div>
-    
+
         <div className="question_block">
           <label className="question_label" htmlFor="triggersScheduleCron">Schedule Cron:</label>
-          <label className="question_description_label">minute[0,59] hour[0,23] day-month[1,31] month-year[1,12] day-week[0,6] (0=sunday)</label>
+          <label className="question_description_label">minute[0,59] hour[0,23] day-month[1,31] month-year[1,12] day-week[0,6] (0=sunday) or <strong>leave blank</strong> if none.</label>
           <label className="question_description_label">e.g. '0 12 * * 4' 👉🏼 <a href="https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: '#007BFF' }}>more help</a></label>
           <input
             id="triggersScheduleCron"
@@ -254,10 +272,10 @@ const Generator = () => {
           />
           {errors.scheduleCron && <p className="error_message">{errors.scheduleCron}</p>}
         </div>
-    
+
         <div className="question_block">
           <label className="question_label" htmlFor="triggersPullRequestBranches">Pull Request Branches (comma separated):</label>
-          <label className="question_description_label">e.g. 'main,development' or leave blank if none</label>
+          <label className="question_description_label">e.g. 'main,development' or or <strong>leave blank</strong> if none.</label>
           <input
             id="triggersPullRequestBranches"
             type="text"
@@ -268,7 +286,7 @@ const Generator = () => {
           />
           {errors.pullRequestBranches && <p className="error_message">{errors.pullRequestBranches}</p>}
         </div>
-    
+
         <p className="generator_title_h3">Runners</p>
         <div className="question_block">
           <label className="question_label" htmlFor="runnerType">Do you plan to use your self-hosted runners?</label>
@@ -314,9 +332,11 @@ const Generator = () => {
         </div>
       </div>
       <p className="generator_note">
-        <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>only</strong> in the repository where you want the workflow to be executed.<br /><br />After installation, please refer to the <a href='https://github.com/alvarogarciapiz/gawg/wiki' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit' }}>Terms of Service</a> and <span style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</span>.
+        <strong>⚠️ Note:</strong> This will generate a GitHub Actions workflow file and configuration file, which will be added to your repository. Ensure you install the GitHub App <strong>ONLY</strong> in the repository where you want the workflow to be executed.<br /><br />📚 After installation, please refer to the <a href='/documentation' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>documentation</a> to complete the configuration. By adding the GitHub App, you agree to the <a href='/terms-conditions' style={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}>Terms of Service</a> and <span style={{ textDecoration: 'none', color: 'inherit' }}>Privacy Policy</span>.
       </p>
-      <button className="submit_button" onClick={handleSubmit}>Install in your repo 🥳</button>
+      <button className="submit_button" onClick={handleSubmit} disabled={loading}>
+        {loading ? <span className="spinner"></span> : 'Add to Repository'}
+      </button>
     </div>
   );
 };
