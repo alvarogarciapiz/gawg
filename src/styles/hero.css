@@ -114,7 +114,8 @@
     width: 90%;
   }
   .hero_container {
-    margin-left: 5vw;
-    margin-right: 5vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: -3vh;
   }
 }
