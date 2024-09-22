@@ -14,6 +14,7 @@ import Macbook from './components/macbook';
 import YouTube from './components/youtube';
 import Users from './components/users';
 import Documentation from './components/documentation';
+import Problems from './components/problems';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from "@vercel/speed-insights/react"
@@ -27,6 +28,7 @@ function App() {
           <>
             <Hero />
             <Features />
+            <Problems />
             <Users />
             <Properties />
             <Steps />

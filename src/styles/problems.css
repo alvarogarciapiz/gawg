@@ -1,0 +1,138 @@
+.problems_container {
+    text-align: center;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 0px;
+}
+
+.problems_title {
+    font-size: 4rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.problems_subtitle {
+    font-size: 1.5rem;
+    color: gray;
+    margin-bottom: 40px;
+}
+
+.problems_blocks {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.problems_block {
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.problems_block_left {
+    background-color: #fdeded;
+}
+
+.problems_block_right {
+    background-color: #e5fbe5;
+}
+
+.problems_list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.problems_list li {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.problems_hours {
+    font-weight: bold;
+    color: rgb(225, 87, 87);
+}
+
+.problems_benefit {
+    font-weight: bold;
+    color: rgb(72, 184, 72);
+}
+
+.problems_mobile_paragraph {
+    display: none;
+    font-size: 1.3rem;
+    color: rgb(74, 74, 74);
+    margin: 20px 5px 30px 5px;
+}
+
+@media (max-width: 1024px) {
+    .problems_container {
+        padding: 30px;
+    }
+
+    .problems_title {
+        font-size: 3rem;
+    }
+
+    .problems_blocks {
+        flex-direction: column;
+    }
+
+    .problems_block {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .problems_container {
+        padding: 20px;
+        width: 90%;
+        max-width: fit-content;
+    }
+
+    .problems_title {
+        font-size: 2.5rem;
+    }
+
+    .problems_blocks {
+        flex-direction: column;
+    }
+
+    .problems_block {
+        margin-bottom: 20px;
+    }
+
+    .problems_mobile_paragraph {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .problems_container {
+        padding: 15px;
+        width: 86%;
+        max-width: fit-content;
+    }
+
+    .problems_title {
+        font-size: 2rem;
+    }
+
+    .problems_subtitle {
+        font-size: 1.2rem;
+    }
+
+    .problems_blocks {
+        flex-direction: column;
+    }
+
+    .problems_block {
+        margin-bottom: 20px;
+    }
+
+    .problems_mobile_paragraph {
+        display: block;
+    }
+}
