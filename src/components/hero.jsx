@@ -7,8 +7,7 @@ const Hero = () => {
     <>
       <div className="hero_container">  
         <h1 className="hero_title">Simplify CI/CD with automated GitHub actions Workflows</h1>
-        <p> </p>
-        <a href="https://www.producthunt.com/posts/github-actions-workflow-generator-gawg?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-github&#0045;actions&#0045;workflow&#0045;generator&#0045;gawg" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://www.producthunt.com/posts/github-actions-workflow-generator-gawg?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-github&#0045;actions&#0045;workflow&#0045;generator&#0045;gawg" target="_blank" rel="noopener noreferrer">
           <img
             src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=491130&theme=neutral"
             alt="GitHub Actions Workflow Generator | Product Hunt"
@@ -16,7 +15,7 @@ const Hero = () => {
             width="250"
             height="54"
           />
-        </a>
+        </a> */}
         <p className="hero_paragraph">
           Automate your GitHub Actions with GAWG, the tool that converts your project needs into efficient GitHub Actions workflows.
         </p>

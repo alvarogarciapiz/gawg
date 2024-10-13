@@ -34,7 +34,7 @@ function App() {
             <Steps />
             <Macbook />
             <YouTube />
-            <Pricing />
+            {/* <Pricing /> */}
             <Generator />
           </>
         } />
